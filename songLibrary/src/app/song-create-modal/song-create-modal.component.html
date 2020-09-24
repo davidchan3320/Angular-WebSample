@@ -1,0 +1,58 @@
+<div class="modal fade" id="create">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="create">New Song</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body was-validated" [formGroup]="cSongForm">
+        <ul class="list-group list-group">
+          <li class="list-group-item" style="background-color: #f5f5f0">Song</li>
+          <input class="list-group-item" id="cSong" placeholder="Song name" [formControl]="cSongForm.controls['cSong']"
+            [attr.required]="true">
+          <div *ngIf="cSongForm.controls['cSong'].hasError('required')" class="invalid-feedback">
+            song name is required.
+          </div>
+        </ul>
+        <ul class="list-group list-group">
+          <li class="list-group-item" style="background-color: #f5f5f0">Artist</li>
+          <input class="list-group-item" id="cArtist" placeholder="Artist name"
+            [formControl]="cSongForm.controls['cArtist']" [attr.required]="true">
+          <div *ngIf="cSongForm.controls['cArtist'].hasError('required')" class="invalid-feedback">
+            artist name is required.
+          </div>
+        </ul>
+        <ul class="list-group list-group">
+          <li class="list-group-item" style="background-color: #f5f5f0">Album</li>
+          <input class="list-group-item" id="cAlbum" placeholder="Album name"
+          [formControl]="cSongForm.controls['cAlbum']" [attr.required]="true">
+          <div *ngIf="cSongForm.controls['cAlbum'].hasError('required')" class="invalid-feedback">
+            album name is required.
+          </div>
+        </ul>
+        <ul class="list-group list-group">
+          <li class="list-group-item" style="background-color: #f5f5f0">Album Image Url</li>
+          <input class="list-group-item" id="cImage" placeholder="Album Image url"
+          [formControl]="cSongForm.controls['cImage']" [attr.required]="true">
+          <div *ngIf="cSongForm.controls['cImage'].hasError('required')" class="invalid-feedback">
+            image url is required.
+          </div>
+        </ul>
+        <ul class="list-group list-group">
+          <li class="list-group-item" style="background-color: #f5f5f0">Preview Audio Url</li>
+          <input class="list-group-item" id="cAudio" placeholder="Preview Audio url"
+          [formControl]="cSongForm.controls['cAudio']" [attr.required]="true">
+          <div *ngIf="cSongForm.controls['cAudio'].hasError('required')" class="invalid-feedback">
+            audio url is required.
+          </div>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onSubmit(cSongForm.value)">Create</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header" id="h{{index}}">
+    <h5 class="mb-0 row">
+      <div id="sN{{song._id}}" class="col-sm-6">
+        {{song.title}}
+      </div>
+      <div id="aN{{song._id}}" class="col-sm-4" style="border-left: 1px solid rgb(0, 0, 0);">
+        {{artist.name}}
+      </div>
+      <button class="btn btn-primary col-sm-2" type="button" data-toggle="collapse" [attr.data-target]="'#c'+ index"
+        aria-expanded="true" [attr.aria-controls]="'c'+ index">
+        show
+      </button>
+    </h5>
+  </div>
+  <div id="c{{index}}" class="collapse" data-parent="#show">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-8">
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item" style="background-color: #f5f5f0">
+              Album
+            </li>
+            <li id="a{{song._id}}" class="list-group-item">
+              {{album.title}}
+            </li>
+          </ul>
+          <br>
+          <ul class="list-group list-group">
+            <li class="list-group-item" style="background-color: #f5f5f0">
+              preview
+            </li>
+            <audio class="list-group-item" controls>
+              <source id="p{{song._id}}" src="{{song.preview}}">
+            </audio>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <img id="Img{{song._id}}" src="{{album.cover_medium}}" width="340" height="200">
+          <hr>
+          <button class="btn btn-danger" (click)="deleteSong(song._id)">Delete</button>
+          <button class="btn btn-success" data-toggle="modal" [attr.data-target]="'#c'+song._id">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-song-modal [song]="song" [album]="album" [artist]="artist" (reset)="callReset()"></app-song-modal>

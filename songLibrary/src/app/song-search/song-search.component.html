@@ -1,0 +1,47 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" (click)="reset()" type="button">Reset</button>
+  </div>
+  <input type="text" class="form-control" id="song_name" placeholder="Enter song name, e.g. numb">
+  <!-- <input type="text" class="form-control" id="artist_name" placeholder="Enter artist name"> -->
+  <div class="input-group-append" id="button-addon4">
+    <!-- <select class="custom-select select" id="cluster"></select> -->
+    <button class="btn btn-outline-secondary" id="btn" (click)="getSearchSong(0, 20)">Search</button>
+  </div>
+</div>
+<hr>
+<!-- show how many docs in each page -->
+<div class="row">
+  <div id="count" class="col-sm-10">
+    About {{total_result}} results, {{current_page}} page of {{numPages()}}
+  </div>
+  <div class="col-sm-2">
+    <div class="btn-group" role="group">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create">
+        New Song
+      </button>
+    </div>
+  </div>
+</div>
+<!-- show how many docs in each page -->
+<!-- show how many docs in each page -->
+<br>
+<!-- show all docs in this div -->
+<div class="accordion" id="show">
+  <app-song-card *ngFor="let song of songs; index as i" [song]="song" [artist]="song.artist" [album]="song.album"
+    [index]="i" (reset)="reset()"></app-song-card>
+</div>
+<!-- show all docs in this div -->
+<br>
+<ul class="pagination justify-content-center">
+  <li id="btn_prev" class="page-item" [class.disabled]="isPrev==true">
+    <button class="page-link" (click)="prevPage()" tabindex="-1">Previous</button>
+  </li>
+  <li class="page-item disabled"><a id="page" class="page-link">{{current_page}}</a></li>
+  <li id="btn_next" class="page-item" [class.disabled]="isNext==true">
+    <button class="page-link" (click)="nextPage()" tabindex="-1">Next</button>
+  </li>
+</ul>
+<br>
+<app-song-create-modal (reset)="reset()"></app-song-create-modal>
