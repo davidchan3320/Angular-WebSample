@@ -1,0 +1,26 @@
+{
+  "name": "Angular-WebSample",
+  "version": "1.0.0",
+  "description": "### Installation - Step 1: download all. SongLibrary download: [click here](https://drive.google.com/file/d/1HglbRpbVlA9ZwlczCNY748uQHYpaT9qG/view?usp=sharing)",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidchan3320/Angular-WebSample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidchan3320/Angular-WebSample/issues"
+  },
+  "homepage": "https://github.com/davidchan3320/Angular-WebSample#readme"
+}
