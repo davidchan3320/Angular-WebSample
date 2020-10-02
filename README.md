@@ -1,5 +1,8 @@
 # Angular-WebSample
 
+### Summary
+This project is for learning Angular. Angular is large thing in front-end development. However, it is clear and easy to maintain because it is a MVC framework. Therefore, it is good practice to learn it. 
+
 ### Requirement
 You have to prepare your MongoDB database. This is a sample JSON format which I used in this project.
 
